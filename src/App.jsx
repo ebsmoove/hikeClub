@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { api, mockApiResponse } from "./services/";
+import { api, mockApiResponse } from "./services";
 import {
   Header,
   TrailAttributesForm,
