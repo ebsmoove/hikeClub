@@ -1,4 +1,4 @@
-import React from "React";
+import React from "react";
 import styled from "styled-components";
 import { uiEnums } from "../../enums";
 import { H1 } from "../shared/typeography";

@@ -1,5 +1,6 @@
+import "regenerator-runtime/runtime";
 import React from "react";
-import { act, render, screen, getByTestId } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { waitForElementToBeRemoved } from "@testing-library/dom";
 import "@testing-library/jest-dom/extend-expect"; // TODO: move to a config so called once

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import TrailCard from "./TrailCard";
 
@@ -28,7 +28,7 @@ export default function TrailListing({
 
   return (
     <TrailListingContainer>
-      {trails.map(({ attributes }, i) => (
+      {trails.map(({ attributes }) => (
         <li
           key={attributes.OGF_ID}
           id={attributes.OGF_ID}

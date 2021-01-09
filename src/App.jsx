@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { api, mockApiResponse } from "./services";
+import React, { useState } from "react";
+import styled, { createGlobalStyle } from "styled-components";
 import { uiEnums } from "./enums";
+
 import {
   Header,
   Instruction,
@@ -8,7 +9,6 @@ import {
   TrailMap,
   TrailListing,
 } from "./components";
-import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 

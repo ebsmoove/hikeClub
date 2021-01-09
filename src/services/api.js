@@ -1,9 +1,7 @@
 import axios from "axios";
-import "regenerator-runtime/runtime";
 import { scrubWhereParams } from "./lioMapServerParamScrubbers";
 
 const getLioMapServer = async (values) => {
-  const { minLength, maxLength, otcTrailChallenge, activity } = values;
   try {
     const response = await axios.get(
       "https://ws.lioservices.lrc.gov.on.ca/arcgis1071a/rest/services/LIO_OPEN_DATA/LIO_Open04/MapServer/20/query",
@@ -20,7 +18,7 @@ const getLioMapServer = async (values) => {
 
     return response.data.features;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 const api = {

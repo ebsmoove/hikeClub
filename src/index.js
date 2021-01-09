@@ -1,8 +1,7 @@
+import "regenerator-runtime/runtime";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.jsx";
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import App from "./App";
 
-var mountNode = document.getElementById("app");
+const mountNode = document.getElementById("app");
 ReactDOM.render(<App name="HikeClub" />, mountNode);
