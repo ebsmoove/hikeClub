@@ -1,6 +1,7 @@
 import { Formik, Form } from "formik";
 import styled from "styled-components";
 import React from "react";
+import PropTypes from "prop-types";
 import RadioGroup from "./RadioGroup";
 import NumberField from "./NumberField";
 import { trailAttritubeFormEnums } from "../../enums";
@@ -51,4 +52,9 @@ const TrailAttributesForm = ({ setTrails }) => (
     )}
   </Formik>
 );
+
+TrailAttributesForm.propTypes = {
+  setTrails: PropTypes.func.isRequired,
+};
+
 export default TrailAttributesForm;

@@ -1,5 +1,6 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import PropTypes from "prop-types";
 
 const containerStyle = {
   width: "100%",
@@ -42,5 +43,10 @@ function TrailMap({ trails, setSetSelectedTrailId, selectedTrailId }) {
     <></>
   );
 }
+TrailMap.propTypes = {
+  trails: PropTypes.arrayOf.isRequired,
+  selectedTrailId: PropTypes.number.isRequired,
+  setSetSelectedTrailId: PropTypes.func.isRequired,
+};
 
 export default React.memo(TrailMap);

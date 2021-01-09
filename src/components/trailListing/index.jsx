@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import TrailCard from "./TrailCard";
 
@@ -14,11 +15,7 @@ const TrailListingContainer = styled.ul`
     margin: 15px 10px 15px 10px;
   }
 `;
-export default function TrailListing({
-  trails,
-  selectedTrailId,
-  setSetSelectedTrailId,
-}) {
+const TrailListing = ({ trails, selectedTrailId, setSetSelectedTrailId }) => {
   useEffect(() => {
     if (!selectedTrailId) return;
     document
@@ -36,9 +33,17 @@ export default function TrailListing({
             setSetSelectedTrailId(attributes.OGF_ID);
           }}
         >
-          <TrailCard selectedTrail={selectedTrailId} {...attributes} />
+          <TrailCard selectedTrailId={selectedTrailId} {...attributes} />
         </li>
       ))}
     </TrailListingContainer>
   );
-}
+};
+
+TrailListing.propTypes = {
+  trails: PropTypes.arrayOf.isRequired,
+  selectedTrailId: PropTypes.number.isRequired,
+  setSetSelectedTrailId: PropTypes.func.isRequired,
+};
+
+export default TrailListing;
