@@ -63,6 +63,9 @@
         "lines": 100,
         "statements": 100
       }
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/src/jestSetup.js"
+    ]
   }
 }
