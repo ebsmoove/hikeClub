@@ -4,6 +4,7 @@ import React from "react";
 import RadioGroup from "./RadioGroup";
 import NumberField from "./NumberField";
 import { trailAttritubeFormEnums } from "../../enums";
+import { api } from "../../services";
 
 const StyledForm = styled(Form)`
   display: flex;
@@ -11,7 +12,7 @@ const StyledForm = styled(Form)`
   padding: 15px;
 `;
 
-const TrailAttributesForm = ({ onSubmit }) => (
+const TrailAttributesForm = ({ setTrails }) => (
   <Formik
     initialValues={{
       [trailAttritubeFormEnums.MIN_LENGTH]: 10,
@@ -19,8 +20,9 @@ const TrailAttributesForm = ({ onSubmit }) => (
       [trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE]: "Challenging",
       [trailAttritubeFormEnums.ACTIVITY]: "Both",
     }}
-    onSubmit={(values) => {
-      onSubmit(values);
+    onSubmit={async (values) => {
+      const getLioMapServerResponse = await api.getLioMapServer(values);
+      setTrails(getLioMapServerResponse);
     }}
   >
     {() => (
