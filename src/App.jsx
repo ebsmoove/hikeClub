@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { api, mockApiResponse } from "./services";
+import { uiEnums } from "./enums";
 import {
   Header,
+  Instruction,
   TrailAttributesForm,
   TrailMap,
   TrailListing,
@@ -43,20 +45,27 @@ export default function App() {
       <FormAndTrailContainer>
         <Header />
         <TrailAttributesForm setTrails={setTrails} />
-        {trails && (
+        {trails ? (
           <TrailListing
             trails={trails}
             selectedTrailId={selectedTrailId}
             setSetSelectedTrailId={setSetSelectedTrailId}
           />
+        ) : (
+          <Instruction title={uiEnums.TRAIL_LISTING_INSTRUCTIONS_TITLE} />
         )}
       </FormAndTrailContainer>
       <TrailMapContainer>
-        {trails && (
+        {trails ? (
           <TrailMap
             trails={trails}
             setSetSelectedTrailId={setSetSelectedTrailId}
             selectedTrailId={selectedTrailId}
+          />
+        ) : (
+          <Instruction
+            title={uiEnums.TRAIL_MAP_INSTRUCTIONS_TITLE}
+            subtitle={uiEnums.TRAIL_MAP_INSTRUCTIONS_SUBTITLE}
           />
         )}
       </TrailMapContainer>

@@ -1,5 +1,6 @@
 import React from "React";
 import styled from "styled-components";
+import { uiEnums } from "../../enums";
 import { H1 } from "../shared/typeography";
 
 const HeaderContainer = styled.header`
@@ -9,7 +10,7 @@ const HeaderContainer = styled.header`
 
 const Header = () => (
   <HeaderContainer>
-    <H1>Hike Club</H1>
+    <H1>{uiEnums.HEADER_TITLE}</H1>
   </HeaderContainer>
 );
 export default Header;

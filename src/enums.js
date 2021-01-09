@@ -16,3 +16,10 @@ export const trailAttritubeFormEnums = {
   ACTIVITY_LABEL: "Activity",
   ACTIVITY_VALUES: ["Non-Motorized", "Both", "Motorized"],
 };
+
+export const uiEnums = {
+  HEADER_TITLE: "Hike Club",
+  TRAIL_LISTING_INSTRUCTIONS_TITLE: "Press submit to see a list of trails",
+  TRAIL_MAP_INSTRUCTIONS_TITLE: "Press submit to see a map of the trails",
+  TRAIL_MAP_INSTRUCTIONS_SUBTITLE: "It'll be lovely",
+};
