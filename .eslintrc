@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "prettier",
+    "prettier/babel",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["jest", "jsx-a11y", "react", "react-hooks"],
+  "rules": {
+    "eqeqeq": ["error", "always"],
+    "import/newline-after-import": 0,
+    "linebreak-style": ["error", "unix"],
+    "no-console": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/no-children-prop": 0,
+    "react/no-find-dom-node": 0,
+    "react/no-string-refs": 1,
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0,
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-props-no-spreading": 0,
+    "react/no-danger": 0
+  }
+}
