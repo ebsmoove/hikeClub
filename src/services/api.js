@@ -1,5 +1,5 @@
 import axios from "axios";
-import { scrubWhereParams } from "./lioMapServerParamScrubbers";
+import scrubWhereParams from "./lioMapServerParamScrubbers";
 
 const getLioMapServer = async (values) => {
   try {

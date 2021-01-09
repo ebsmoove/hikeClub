@@ -17,14 +17,17 @@ const whichWhereParam = (key, value) => {
     case ACTIVITY:
       return value ? `${ACTIVITY} = '${value}'` : "";
     default:
-      break;
+      return "";
   }
 };
-export const scrubWhereParams = (values) => {
-  let params = [];
-  Object.entries(values).forEach(([key, value]) => {
-    return params.push(whichWhereParam(key, value));
-  });
+
+const scrubWhereParams = (values) => {
+  const params = [];
+  Object.entries(values).forEach(([key, value]) =>
+    params.push(whichWhereParam(key, value))
+  );
   const filteredParams = params.filter((param) => param);
   return filteredParams.join(" AND ");
 };
+
+export default scrubWhereParams;
