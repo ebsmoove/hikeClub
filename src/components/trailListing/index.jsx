@@ -41,9 +41,12 @@ const TrailListing = ({ trails, selectedTrailId, setSetSelectedTrailId }) => {
 };
 
 TrailListing.propTypes = {
-  trails: PropTypes.arrayOf.isRequired,
-  selectedTrailId: PropTypes.number.isRequired,
+  trails: PropTypes.array.isRequired,
+  selectedTrailId: PropTypes.number,
   setSetSelectedTrailId: PropTypes.func.isRequired,
 };
 
+TrailListing.defaultProps = {
+  selectedTrailId: null,
+};
 export default TrailListing;

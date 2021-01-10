@@ -44,9 +44,12 @@ function TrailMap({ trails, setSetSelectedTrailId, selectedTrailId }) {
   );
 }
 TrailMap.propTypes = {
-  trails: PropTypes.arrayOf.isRequired,
-  selectedTrailId: PropTypes.number.isRequired,
+  trails: PropTypes.array.isRequired,
+  selectedTrailId: PropTypes.number,
   setSetSelectedTrailId: PropTypes.func.isRequired,
 };
 
+TrailMap.defaultProps = {
+  selectedTrailId: null,
+};
 export default React.memo(TrailMap);

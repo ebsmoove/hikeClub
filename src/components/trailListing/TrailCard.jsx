@@ -42,13 +42,17 @@ const TrailCard = ({
 );
 
 TrailCard.propTypes = {
-  OGF_ID: PropTypes.string.isRequired,
-  selectedTrailId: PropTypes.number.isRequired,
+  OGF_ID: PropTypes.number.isRequired,
+  selectedTrailId: PropTypes.number,
   ACTIVITY: PropTypes.string.isRequired,
   TRAIL_NAME: PropTypes.string.isRequired,
-  LENGTH_KMS: PropTypes.string.isRequired,
+  LENGTH_KMS: PropTypes.number.isRequired,
   OTC_TRAIL_CHALLENGE: PropTypes.string.isRequired,
-  LOCATION_DESCR: PropTypes.string.isRequired,
+  LOCATION_DESCR: PropTypes.string,
 };
 
+TrailCard.defaultProps = {
+  LOCATION_DESCR: "",
+  selectedTrailId: null,
+};
 export default TrailCard;
