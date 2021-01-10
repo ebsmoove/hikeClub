@@ -3,6 +3,8 @@ import { Formik, Form, Field } from "formik";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { TextField } from "formik-material-ui";
+import expandMore from "../assets/expand_more.svg";
+import expandLess from "../assets/expand_less.svg";
 import RadioGroup from "./RadioGroup";
 import SubmitButton from "./SubmitButton";
 import { trailAttritubeFormEnums } from "../../enums";
@@ -38,7 +40,10 @@ const TrailAttributesForm = ({ setTrails }) => {
           setIsVisible(!isVisible);
         }}
       >
-        FOLD
+        <img
+          src={isVisible ? expandLess : expandMore}
+          alt="downward facing error"
+        />
       </button>
       <FormContainer isVisible={isVisible}>
         <Formik
