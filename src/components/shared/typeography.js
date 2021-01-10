@@ -37,7 +37,10 @@ export const ST2 = styled.p`
   font-style: italic;
 `;
 
-export const BT1 = styled.p`
+export const BUTT1 = styled.p`
   font-family: "Roboto", sans-serif;
   font-size: 14;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
 `;

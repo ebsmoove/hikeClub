@@ -1,9 +1,10 @@
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import styled from "styled-components";
 import React from "react";
 import PropTypes from "prop-types";
+import { TextField } from "formik-material-ui";
 import RadioGroup from "./RadioGroup";
-import NumberField from "./NumberField";
+import SubmitButton from "./SubmitButton";
 import { trailAttritubeFormEnums } from "../../enums";
 import { api } from "../../services";
 
@@ -11,6 +12,13 @@ const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   padding: 15px;
+  > * {
+    margin: 10px;
+  }
+`;
+
+const RadioGroups = styled.div`
+  display: flex;
 `;
 
 const TrailAttributesForm = ({ setTrails }) => (
@@ -26,28 +34,36 @@ const TrailAttributesForm = ({ setTrails }) => (
       setTrails(getLioMapServerResponse);
     }}
   >
-    {() => (
+    {({ isSubmitting }) => (
       <StyledForm>
-        <NumberField
+        <Field
           name={trailAttritubeFormEnums.MIN_LENGTH}
-          labelText={trailAttritubeFormEnums.MIN_LENGTH_LABEL}
+          label={trailAttritubeFormEnums.MIN_LENGTH_LABEL}
+          type="number"
+          component={TextField}
         />
-        <NumberField
+        <Field
           name={trailAttritubeFormEnums.MAX_LENGTH}
-          labelText={trailAttritubeFormEnums.MAX_LENGTH_LABEL}
+          label={trailAttritubeFormEnums.MAX_LENGTH_LABEL}
+          type="number"
+          component={TextField}
         />
+        <RadioGroups>
+          <RadioGroup
+            labelText={trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE_LABEL}
+            name={trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE}
+            values={trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE_VALUES}
+            isSubmitting={isSubmitting}
+          />
+          <RadioGroup
+            labelText={trailAttritubeFormEnums.ACTIVITY_LABEL}
+            name={trailAttritubeFormEnums.ACTIVITY}
+            values={trailAttritubeFormEnums.ACTIVITY_VALUES}
+            isSubmitting={isSubmitting}
+          />
+        </RadioGroups>
 
-        <RadioGroup
-          labelText={trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE_LABEL}
-          name={trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE}
-          values={trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE_VALUES}
-        />
-        <RadioGroup
-          labelText={trailAttritubeFormEnums.ACTIVITY_LABEL}
-          name={trailAttritubeFormEnums.ACTIVITY}
-          values={trailAttritubeFormEnums.ACTIVITY_VALUES}
-        />
-        <button type="submit">Submit</button>
+        <SubmitButton type="submit" isSubmitting={isSubmitting} />
       </StyledForm>
     )}
   </Formik>
