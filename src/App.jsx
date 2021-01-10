@@ -51,7 +51,10 @@ export default function App() {
             setSetSelectedTrailId={setSetSelectedTrailId}
           />
         ) : (
-          <Instruction title={uiEnums.TRAIL_LISTING_INSTRUCTIONS_TITLE} />
+          <Instruction
+            title={uiEnums.TRAIL_LISTING_INSTRUCTIONS_TITLE}
+            subtitle={uiEnums.TRAIL_LISTING_INSTRUCTIONS_SUBTITLE}
+          />
         )}
       </FormAndTrailContainer>
       <TrailMapContainer>
