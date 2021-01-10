@@ -39,7 +39,12 @@ const TrailListing = ({ trails, selectedTrailId, setSetSelectedTrailId }) => {
 };
 
 TrailListing.propTypes = {
-  trails: PropTypes.array.isRequired,
+  trails: PropTypes.arrayOf(
+    PropTypes.shape({
+      attrbutes: PropTypes.string.isRequired,
+      fontSize: PropTypes.number.isRequired,
+    })
+  ).isRequired,
   selectedTrailId: PropTypes.number,
   setSetSelectedTrailId: PropTypes.func.isRequired,
 };

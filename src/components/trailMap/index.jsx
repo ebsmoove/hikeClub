@@ -23,22 +23,24 @@ function TrailMap({ trails, setSetSelectedTrailId, selectedTrailId }) {
   const selectedTrailIcon =
     "http://maps.google.com/mapfiles/kml/pal2/icon4.png";
   return isLoaded ? (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={7}>
-      {trails.map((trail) => (
-        <Marker
-          key={trail.geometry.y}
-          position={{ lat: trail.geometry.y, lng: trail.geometry.x }}
-          title={trail.attributes.TRAIL_NAME}
-          icon={
-            trail.attributes.OGF_ID === selectedTrailId
-              ? selectedTrailIcon
-              : unSelectedTrailIcon
-          }
-          onClick={() => setSetSelectedTrailId(trail.attributes.OGF_ID)}
-        />
-      ))}
-      <Marker position={center} label="Home" />
-    </GoogleMap>
+    <section>
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={7}>
+        {trails.map((trail) => (
+          <Marker
+            key={trail.geometry.y}
+            position={{ lat: trail.geometry.y, lng: trail.geometry.x }}
+            title={trail.attributes.TRAIL_NAME}
+            icon={
+              trail.attributes.OGF_ID === selectedTrailId
+                ? selectedTrailIcon
+                : unSelectedTrailIcon
+            }
+            onClick={() => setSetSelectedTrailId(trail.attributes.OGF_ID)}
+          />
+        ))}
+        <Marker position={center} label="Home" />
+      </GoogleMap>
+    </section>
   ) : (
     <></>
   );

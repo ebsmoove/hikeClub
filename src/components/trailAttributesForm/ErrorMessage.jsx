@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ERR } from "../shared/typeography";
 import styled from "styled-components";
+import { ERR } from "../shared/typeography";
 
 const ErrorMessageContainer = styled.div`
   display: flex;

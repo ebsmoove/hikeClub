@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { ST1 } from "../shared/typeography";
+import { ST1 } from "./typeography";
 import expandMore from "../assets/expand_more.svg";
 import expandLess from "../assets/expand_less.svg";
 
@@ -24,9 +24,14 @@ const Button = styled.button`
 
 const VisibiltyToggleWrapper = (WrappedComponent) =>
   class extends React.Component {
-    state = {
-      isVisible: this.props.isVisble || true,
-    };
+    constructor(props) {
+      super(props);
+      const { isVisible } = props;
+
+      this.state = {
+        isVisible: isVisible || true,
+      };
+    }
 
     toggleIsVisible() {
       const { isVisible } = this.state;
@@ -34,16 +39,17 @@ const VisibiltyToggleWrapper = (WrappedComponent) =>
     }
 
     render() {
-      const { isVisible } = this.state;
+      const {
+        state: { isVisible },
+        props: { elementName },
+      } = this;
       return (
         <>
           <Container isVisible={isVisible}>
             <WrappedComponent {...this.props} />
           </Container>
           <VisibilityBar>
-            <ST1>
-              {isVisible ? "" : `Click to see ${this.props.elementName}`}{" "}
-            </ST1>
+            {!isVisible && <ST1> Click to see {elementName} </ST1>}
             <Button
               type="button"
               onClick={() => {
