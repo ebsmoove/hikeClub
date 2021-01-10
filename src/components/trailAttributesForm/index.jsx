@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { TextField } from "formik-material-ui";
 import VisibilityToggleWrapper from "../shared/VisibilityToggleWrapper.js";
 import RadioGroup from "./RadioGroup";
+import ErrorMessage from "./ErrorMessage";
 import SubmitButton from "./SubmitButton";
 import { trailAttritubeFormEnums } from "../../enums";
 import { api } from "../../services";
@@ -33,12 +34,18 @@ const TrailAttributesForm = ({ setTrails }) => (
         [trailAttritubeFormEnums.OTC_TRAIL_CHALLENGE]: "Challenging",
         [trailAttritubeFormEnums.ACTIVITY]: "Both",
       }}
-      onSubmit={async (values) => {
-        const getLioMapServerResponse = await api.getLioMapServer(values);
-        setTrails(getLioMapServerResponse);
+      onSubmit={async (values, { setStatus }) => {
+        try {
+          const getLioMapServerResponse = await api.getLioMapServer(values);
+          setTrails(getLioMapServerResponse);
+        } catch (error) {
+          setStatus({
+            api: "There is an error with the api. Please try later.",
+          });
+        }
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, status }) => (
         <Form>
           <Field
             name={trailAttritubeFormEnums.MIN_LENGTH}
@@ -66,7 +73,9 @@ const TrailAttributesForm = ({ setTrails }) => (
               isSubmitting={isSubmitting}
             />
           </RadioGroups>
-
+          {status && status.api && (
+            <ErrorMessage error="There is a problem with the API, please try again later." />
+          )}
           <SubmitButton type="submit" isSubmitting={isSubmitting} />
         </Form>
       )}

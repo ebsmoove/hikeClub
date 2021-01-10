@@ -44,3 +44,9 @@ export const BUTT1 = styled.p`
   margin: 0;
   text-transform: uppercase;
 `;
+
+export const ERR = styled.p`
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: red;
+`;
