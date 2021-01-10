@@ -26,14 +26,12 @@ const TrailListing = ({ trails, selectedTrailId, setSetSelectedTrailId }) => {
   return (
     <TrailListingContainer>
       {trails.map(({ attributes }) => (
-        <li
-          key={attributes.OGF_ID}
-          id={attributes.OGF_ID}
-          onClick={() => {
-            setSetSelectedTrailId(attributes.OGF_ID);
-          }}
-        >
-          <TrailCard selectedTrailId={selectedTrailId} {...attributes} />
+        <li key={attributes.OGF_ID} id={attributes.OGF_ID}>
+          <TrailCard
+            selectedTrailId={selectedTrailId}
+            setSetSelectedTrailId={setSetSelectedTrailId}
+            {...attributes}
+          />
         </li>
       ))}
     </TrailListingContainer>
