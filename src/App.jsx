@@ -35,8 +35,7 @@ const TrailMapContainer = styled.div`
 `;
 
 export default function App() {
-  const [trails, setTrails] = useState();
-
+  const [trails, setTrails] = useState([]);
   const [selectedTrailId, setSetSelectedTrailId] = useState();
 
   return (
@@ -44,8 +43,8 @@ export default function App() {
       <GlobalStyle />
       <FormAndTrailContainer>
         <Header />
-        <TrailAttributesForm setTrails={setTrails} />
-        {trails ? (
+        <TrailAttributesForm setTrails={setTrails} elementName="Form" />
+        {trails.length > 0 ? (
           <TrailListing
             trails={trails}
             selectedTrailId={selectedTrailId}
@@ -56,7 +55,7 @@ export default function App() {
         )}
       </FormAndTrailContainer>
       <TrailMapContainer>
-        {trails ? (
+        {trails.length > 0 ? (
           <TrailMap
             trails={trails}
             setSetSelectedTrailId={setSetSelectedTrailId}
