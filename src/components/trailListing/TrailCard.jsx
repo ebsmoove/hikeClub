@@ -55,9 +55,7 @@ const TrailCard = ({
     <SubtitleContainer>
       <ST2>Diffculty: {OTC_TRAIL_CHALLENGE}</ST2>
       <ST2>Activity: {ACTIVITY}</ST2>
-      <ST2>
-        {LENGTH_KMS} km{"'"}s
-      </ST2>
+      <ST2>Length: {LENGTH_KMS} km&apos;s</ST2>
     </SubtitleContainer>
     <B1>{LOCATION_DESCR}</B1>
   </TrailCardContainer>

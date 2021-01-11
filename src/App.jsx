@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { uiEnums } from "./enums";
 
 import {
@@ -10,21 +10,18 @@ import {
   TrailListing,
 } from "./components";
 
-const GlobalStyle = createGlobalStyle`
-
-`;
-
 const AppContainer = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
 `;
+
 const FormAndTrailContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
   height: 100%;
+  padding: 0px 10px 0px 10px;
 `;
 
 const TrailMapContainer = styled.div`
@@ -35,16 +32,15 @@ const TrailMapContainer = styled.div`
 `;
 
 export default function App() {
-  const [trails, setTrails] = useState([]);
+  const [trails, setTrails] = useState();
   const [selectedTrailId, setSetSelectedTrailId] = useState();
 
   return (
     <AppContainer>
-      <GlobalStyle />
       <FormAndTrailContainer>
         <Header />
         <TrailAttributesForm setTrails={setTrails} elementName="Form" />
-        {trails.length > 0 ? (
+        {trails ? (
           <TrailListing
             trails={trails}
             selectedTrailId={selectedTrailId}
@@ -58,7 +54,7 @@ export default function App() {
         )}
       </FormAndTrailContainer>
       <TrailMapContainer>
-        {trails.length > 0 ? (
+        {trails ? (
           <TrailMap
             trails={trails}
             setSetSelectedTrailId={setSetSelectedTrailId}

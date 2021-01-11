@@ -1,10 +1,11 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import PropTypes from "prop-types";
+import Instruction from "../instruction";
 
 const containerStyle = {
+  height: "100vh",
   width: "100%",
-  height: "100%",
 };
 
 const center = {
@@ -18,6 +19,7 @@ function TrailMap({ trails, setSetSelectedTrailId, selectedTrailId }) {
     googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
   });
 
+  console.log("loading");
   const unSelectedTrailIcon =
     "http://maps.google.com/mapfiles/kml/pal2/icon12.png";
   const selectedTrailIcon =
@@ -38,11 +40,10 @@ function TrailMap({ trails, setSetSelectedTrailId, selectedTrailId }) {
             onClick={() => setSetSelectedTrailId(trail.attributes.OGF_ID)}
           />
         ))}
-        <Marker position={center} label="Home" />
       </GoogleMap>
     </section>
   ) : (
-    <></>
+    <Instruction title="Should be a map here..." />
   );
 }
 TrailMap.propTypes = {
