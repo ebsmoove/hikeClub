@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { ERR } from "../shared/typeography";
 
-const ErrorMessageContainer = styled.div`
+const Container = styled.div`
   display: flex;
   align-content: center;
   width: 100%;
@@ -11,9 +11,9 @@ const ErrorMessageContainer = styled.div`
 `;
 
 const ErrorMessage = ({ error }) => (
-  <ErrorMessageContainer>
+  <Container>
     <ERR>{error}</ERR>
-  </ErrorMessageContainer>
+  </Container>
 );
 
 ErrorMessage.propTypes = {

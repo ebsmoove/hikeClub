@@ -10,7 +10,7 @@ import {
   TrailListing,
 } from "./components";
 
-const AppContainer = styled.div`
+const Container = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -36,7 +36,7 @@ export default function App() {
   const [selectedTrailId, setSetSelectedTrailId] = useState();
 
   return (
-    <AppContainer>
+    <Container>
       <FormAndTrailContainer>
         <Header />
         <TrailAttributesForm setTrails={setTrails} elementName="Form" />
@@ -67,6 +67,6 @@ export default function App() {
           />
         )}
       </TrailMapContainer>
-    </AppContainer>
+    </Container>
   );
 }

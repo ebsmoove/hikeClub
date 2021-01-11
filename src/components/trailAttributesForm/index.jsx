@@ -10,7 +10,7 @@ import SubmitButton from "./SubmitButton";
 import { trailAttritubeFormEnums } from "../../enums";
 import { api } from "../../services";
 
-const FormContainer = styled.div`
+const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ const RadioGroups = styled.div`
 `;
 
 const TrailAttributesForm = ({ setTrails }) => (
-  <FormContainer>
+  <Container>
     <Formik
       initialValues={{
         [trailAttritubeFormEnums.MIN_LENGTH]: 10,
@@ -80,7 +80,7 @@ const TrailAttributesForm = ({ setTrails }) => (
         </Form>
       )}
     </Formik>
-  </FormContainer>
+  </Container>
 );
 
 TrailAttributesForm.propTypes = {

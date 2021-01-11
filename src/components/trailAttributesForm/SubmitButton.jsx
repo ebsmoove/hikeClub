@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { BUTT1 } from "../shared/typeography";
 
-const SubmitButtonContainer = styled.button`
+const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@ const Spinner = styled.div`
   }
 `;
 const SubmitButton = ({ isSubmitting }) => (
-  <SubmitButtonContainer isSubmitting={isSubmitting}>
+  <Button isSubmitting={isSubmitting}>
     {isSubmitting ? (
       <>
         <Spinner /> <BUTT1>Submitting</BUTT1>
@@ -41,7 +41,7 @@ const SubmitButton = ({ isSubmitting }) => (
     ) : (
       <BUTT1>Submit</BUTT1>
     )}
-  </SubmitButtonContainer>
+  </Button>
 );
 
 SubmitButton.propTypes = {

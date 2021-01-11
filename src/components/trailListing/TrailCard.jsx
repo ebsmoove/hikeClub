@@ -6,7 +6,8 @@ const unSelectedBoxShadow =
   "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)";
 const selecetedBoxShaodw =
   " 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);";
-const TrailCardContainer = styled.div`
+
+const Container = styled.div`
   box-shadow: ${({ selected }) =>
     selected ? selecetedBoxShaodw : unSelectedBoxShadow};
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -42,7 +43,7 @@ const TrailCard = ({
   OTC_TRAIL_CHALLENGE,
   LOCATION_DESCR,
 }) => (
-  <TrailCardContainer selected={OGF_ID === selectedTrailId}>
+  <Container selected={OGF_ID === selectedTrailId}>
     <TitleContainer>
       <ST1>{TRAIL_NAME}</ST1>
       <Button
@@ -58,7 +59,7 @@ const TrailCard = ({
       <ST2>Length: {LENGTH_KMS} km&apos;s</ST2>
     </SubtitleContainer>
     <B1>{LOCATION_DESCR}</B1>
-  </TrailCardContainer>
+  </Container>
 );
 
 TrailCard.propTypes = {

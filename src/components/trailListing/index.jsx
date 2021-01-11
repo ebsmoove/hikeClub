@@ -4,7 +4,7 @@ import styled from "styled-components";
 import TrailCard from "./TrailCard";
 import { ST1 } from "../shared/typeography";
 
-const TrailListingContainer = styled.ul`
+const Container = styled.ul`
   display: flex;
   height: 100%;
 
@@ -27,7 +27,7 @@ const TrailListing = ({ trails, selectedTrailId, setSetSelectedTrailId }) => {
   });
 
   return (
-    <TrailListingContainer>
+    <Container>
       <ST1>Your search has returned {trails.length} results!</ST1>
       {trails.map(({ attributes }) => (
         <LI key={attributes.OGF_ID} id={attributes.OGF_ID}>
@@ -38,7 +38,7 @@ const TrailListing = ({ trails, selectedTrailId, setSetSelectedTrailId }) => {
           />
         </LI>
       ))}
-    </TrailListingContainer>
+    </Container>
   );
 };
 
