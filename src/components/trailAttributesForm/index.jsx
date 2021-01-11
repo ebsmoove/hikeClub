@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { TextField } from "formik-material-ui";
 import VisibilityToggleWrapper from "../shared/VisibilityToggleWrapper";
 import RadioGroup from "./RadioGroup";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "../shared/ErrorMessage";
 import SubmitButton from "./SubmitButton";
 import { trailAttritubeFormEnums } from "../../enums";
 import { api } from "../../services";

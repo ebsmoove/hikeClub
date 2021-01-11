@@ -7,7 +7,6 @@ import { ST1 } from "../shared/typeography";
 const Container = styled.ul`
   display: flex;
   height: 100%;
-
   overflow: scroll;
   flex-direction: column;
   list-style-type: none;

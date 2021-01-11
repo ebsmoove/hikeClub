@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { ERR } from "../shared/typeography";
+import { ERR } from "./typeography";
 
 const Container = styled.div`
   display: flex;
